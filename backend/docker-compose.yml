@@ -1,0 +1,14 @@
+nosql:
+  image: mongo
+  container_name: nosql
+  ports:
+    - 27017:27017
+
+app:
+  build: .
+  ports: 
+    - "3333:3333"
+  links: 
+    - "nosql:mongo"
+  command: "npm start"
+
